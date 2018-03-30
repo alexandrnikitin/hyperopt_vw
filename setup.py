@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """The setup script."""
-
-from setuptools import setup, find_packages
+import os
+from setuptools import setup, find_packages, findall
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -11,11 +11,16 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = ['Click>=6.0', 'hyperopt', 'scikit-learn', 'numpy', 'matplotlib', 'seaborn']
 
 setup_requirements = [ ]
 
 test_requirements = [ ]
+
+
+def find_scripts():
+    return [s for s in findall('scripts/') if os.path.splitext(s)[1] != '.pyc']
+
 
 setup(
     author="Alexandr Nikitin",
@@ -33,11 +38,11 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     description="Hyperopt integration for Vowpal Wabbit",
-    entry_points={
-        'console_scripts': [
-            'hyperopt_vw=hyperopt_vw.cli:main',
-        ],
-    },
+    # entry_points={
+    #     'console_scripts': [
+    #         'hyperopt_vw=hyperopt_vw.cli:main',
+    #     ],
+    # },
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
@@ -45,6 +50,7 @@ setup(
     keywords='hyperopt_vw',
     name='hyperopt_vw',
     packages=find_packages(include=['hyperopt_vw']),
+    scripts=find_scripts(),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
