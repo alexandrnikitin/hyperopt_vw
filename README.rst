@@ -35,12 +35,3 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
-
-
-
-.. code-block:: bash
-    --train_data=/root/alex/kaggle-talkingdata-adtracking-fraud-detection/data/processed/train.small.vw.00
-    --test_data=/root/alex/kaggle-talkingdata-adtracking-fraud-detection/data/processed/test.small.vw.00
-    --vw_space="--algorithms=ftrl,sgd --l2=1e-8..1e-1~LO --l1=1e-8..1e-1~LO -l=0.01..10~L --power_t=0.01..1 --ftrl_alpha=5e-5..8e-1~L --ftrl_beta=0.01..1 --passes=1..10~I -q=:: -b=29 --link=logistic --loss_function=logistic --hash=all --classweight=1:500"
-    --mongo=mongo://10.3.14.9:27017/foo_db/jobs
-
